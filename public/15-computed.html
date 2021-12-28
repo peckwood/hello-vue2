@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <h3>计算属性和侦听器 > 计算属性</h3>
+  <p></p>
+  <br />
+  <div id="app">
+    <p>Original message: {{ msg }}</p>
+    <p>Reversed message: {{reversedMsg}}</p>
+  </div>
+
+  <h3>计算属性和侦听器 > 计算属性缓存 vs 方法</h3>
+<p>  计算属性是基于它们的响应式依赖进行缓存的
+  每当触发重新渲染时，调用方法将总会再次执行函数
+  如果你不希望有缓存，请用方法来替代。</p>
+
+  <script type="text/javascript">
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: 'hello'
+      },
+      computed: {
+        reversedMsg: function () {
+          return this.msg.split('').reverse().join('');
+        }
+      }
+    });
+
+  </script>
+</body>
+
+</html>

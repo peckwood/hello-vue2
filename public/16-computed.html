@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <h3>计算属性和侦听器 > 计算属性 vs 侦听属性</h3>
+  <p></p>
+  <br />
+  <div id="app">
+    <p>fullname: {{fullname}}</p>
+  </div>
+
+  <script type="text/javascript">
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        firstname: 'John',
+        lastname: 'Doe'
+      },
+      computed: {
+        fullname: function () {
+          return this.firstname + ' ' + this.lastname
+        }
+      }
+    });
+
+  </script>
+</body>
+
+</html>

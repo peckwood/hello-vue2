@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+
+  <div id="app">
+    <p> {{foo}} </p>
+    <button v-on:click='tryToChangeA'>尝试改变a的内容</button>
+  </div>
+
+  <script type="text/javascript">
+
+    var obj = {
+      foo: 'initial'
+    }
+
+    Object.freeze(obj);
+
+    var app = new Vue({
+      el: '#app',
+      data: obj,
+      methods: {
+        tryToChangeA: function () {
+          this.foo = 'changed2';
+        }
+      },
+    });
+
+    a = 'changed'
+  </script>
+</body>
+
+</html>

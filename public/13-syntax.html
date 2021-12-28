@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <h3>插值 > Attribute</h3>
+  <p>Mustache 语法不能作用在 HTML attribute 上，遇到这种情况应该使用 v-bind 指令：</p>
+  <br />
+  <div id="app">
+    <p v-bind:id='dynamicId'>查一查我的标签ID是什么?</p>
+    <button v-bind:disabled='isButtonDisabled'>提交</button>
+  </div>
+
+  <script type="text/javascript">
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        dynamicId: 'id1',
+        isButtonDisabled: true
+      }
+    });
+
+    app.msg = 'new msg';
+
+  </script>
+</body>
+
+</html>
