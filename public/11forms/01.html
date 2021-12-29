@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <h3>表单输入绑定 > 文本</h3>
+  <p></p>
+  <br />
+  <div id='app'>
+    <input v-model='msg' placeholder="edit me">
+    <p>message is {{ msg }}</p>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data:{
+        msg: 'help'
+      }
+    });
+
+  </script>
+</body>
+
+</html>

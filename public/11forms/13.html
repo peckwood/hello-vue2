@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <h3>表单输入绑定 > 修饰符 > .lazy</h3>
+  <br>
+  <div id='app'>
+    <!-- 在“change”时而非“input”时更新 -->
+    <input v-model.lazy="msg">
+    <p>msg: {{msg}}</p>
+    <p>在默认情况下，v-model 在每次 input 事件触发后将输入框的值与数据进行同步 (除了上述输入法组合文字时)。你可以添加 lazy 修饰符，从而转为在 change 事件_之后_进行同步：</p>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: ''
+      }
+    });
+
+  </script>
+</body>
+
+</html>

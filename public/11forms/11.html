@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <h3>表单输入绑定 > 值绑定 > 复选框</h3>
+  <br>
+  <div id='app'>
+    <input type="radio" v-model='pick' v-bind:value='a'>
+    <p>{{a}}</p>
+  </div>
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data:{
+        pick: false,
+        a: false
+      }
+    });
+
+  </script>
+</body>
+
+</html>
