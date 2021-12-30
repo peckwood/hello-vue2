@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <h3>组件注册 > 全局注册和局部注册</h3>
+  <br />
+  <div id="app">
+    <global-component></global-component>
+    <local-component1></local-component1>
+  </div>
+
+  <script type="text/javascript">
+    Vue.component('global-component', {
+      template:
+        `<p>im a global component</p>`
+    });
+
+    var localComponent = {
+      template:
+        `<p>im a local component</p>`
+    }
+
+    var app = new Vue({
+      el: '#app',
+      components: {
+        'local-component1': localComponent
+      }
+    });
+
+  </script>
+</body>
+
+</html>

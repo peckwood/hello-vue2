@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <h3>动态组件</h3>
+  <br />
+  <div id="myTabs">
+    <button v-for='tab in tabs' v-bind:key='tab' v-on:click='current_tab = tab'>
+      {{tab}}
+    </button>
+    
+    <!-- 这个组件是动态的! -->
+    <component :is="currentTabComponent"></component>
+
+  </div>
+
+  <script type="text/javascript">
+    Vue.component('tab-home', {
+      template:
+        `<div>HOME</div>`,
+    });
+    Vue.component('tab-post', {
+      template:
+        `<div>POST</div>`,
+    });
+    Vue.component('tab-archive', {
+      template:
+        `<div>ARCHIVE</div>`,
+    });
+
+    var app = new Vue({
+      el: '#myTabs',
+      data: {
+        tabs: ['home', 'post', 'archive'],
+        current_tab: 'home'
+      },
+      //注意这里是在computed内
+      computed: {
+        currentTabComponent: function () {
+          return "tab-" + this.current_tab;
+        }
+      }
+    });
+
+  </script>
+</body>
+
+</html>

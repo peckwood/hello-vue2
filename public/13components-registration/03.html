@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <h3>深入了解组件 > Prop > 传递静态或动态 Prop</h3>
+  <br />
+  <div id="app">
+    <blog_post v-for='post in posts' v-bind='post'></blog_post>
+  </div>
+
+  <script type="text/javascript">
+    var blog_post = {
+      props: {
+        title: String,
+        likes: Number,
+        isPublished: Boolean,
+        commentIds: Array,
+        author: Object,
+        callback: Function,
+        contactsPromise: Promise //or any other constructor
+      },
+      template: `
+      <div>
+        <h3>{{title}}</h3>
+        <p>likes: {{likes}}</p>
+      </div>
+      `
+    };
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        title: 'MyTitle',
+        posts: [
+          {
+            title: 'title1',
+            likes: 3
+          },
+          {
+            title: 'title2',
+            likes: 4
+          },
+        ]
+      },
+      components: {
+        'blog_post': blog_post
+      }
+
+    });
+  </script>
+</body>
+
+</html>

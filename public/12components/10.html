@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <h3>组件基础 > 解析 DOM 模板时的注意事项</h3>
+  <p>注意前三行其实在表格之外</p>
+  <br />
+  <div id="app">
+   <table>
+     <blog-post-row></blog-post-row>
+     <blog-post-row></blog-post-row>
+     <blog-post-row></blog-post-row>
+     <tr is='blog-post-row'></tr>
+     <tr is='blog-post-row'></tr>
+     <tr is='blog-post-row'></tr>
+   </table>
+
+  </div>
+
+  <script type="text/javascript">
+    Vue.component('blog-post-row', {
+      template:
+        `<tr>blog post row</tr>`,
+    });
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+      }
+    });
+
+  </script>
+</body>
+
+</html>

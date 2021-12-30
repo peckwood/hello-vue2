@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <h3>监听子组件事件 > 在组件上使用 v-model</h3>
+  <br />
+  <div id="blog-post-demo">
+    <custom_input v-model='search_text'></custom_input>
+    <p>{{search_text}}</p>
+  </div>
+  </div>
+
+  <script type="text/javascript">
+    Vue.component('custom_input', {
+      props: ['value'],
+      template:
+        `
+        <input
+        v-bind:value='value'
+        v-on:input='$emit("input", $event.target.value)'>
+      `,
+    });
+
+    var app = new Vue({
+      el: '#blog-post-demo',
+      data: {
+        search_text: 'hello'
+      },
+    });
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- 引入 http-vue-loader -->
+    <script src="https://unpkg.com/http-vue-loader"></script>
+</head>
+
+<body>
+    <h3>组件注册 > 全局注册和局部注册</h3>
+    <br />
+    <div id="app">
+        <componenta></componenta>
+    </div>
+    <p>ff</p>
+</body>
+<!-- 引入组件库 -->
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+    // 使用httpVueLoader
+    Vue.use(httpVueLoader);
+    var app = new Vue({
+        el: "#app",
+        components: {
+            'componenta': './components/componenta.vue'
+        }
+    });
+</script>
+
+</html>
