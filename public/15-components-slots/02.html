@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <h3>插槽 > 编译作用域</h3>
+  <br />
+  <p>可能例子不太好</p>
+  <div id="app">
+    <navigationlink url='/profile'>
+      Logged in as {{user.name}}
+      <br />
+      But I cannot access url here(咋回事???): {{url}}
+    </navigationlink>
+    <br />
+  </div>
+
+  <script type="text/javascript">
+
+    var app = new Vue({
+      el: '#app',
+      components: {
+        'navigationlink': {
+          template:
+            `
+            <a v-bind:href='url'
+            class='nav-link'>
+              <slot></slot>
+            </a>
+            `
+          , data: function () {//这是组件自己的data
+            return {
+              user: {
+                name: 'Thunder'
+              }
+              
+            }
+          }
+        }
+
+      },
+      data: {
+        user: {
+          name: 'Raiden'
+        },
+        url: 'http://www.daoke.com'
+      }
+    });
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+
+<body>
+  <h3>插槽</h3>
+  <br />
+  <div id="app">
+    <navigation-link url='/profile'>
+      Your profile
+    </navigation-link>
+    <br />
+    <frame-with-pic>
+      <img src="https://www.baidu.com/img/flexible/logo/pc/result.png" alt="baidu">
+    </frame-with-pic>
+  </div>
+
+  <script type="text/javascript">
+
+    var app = new Vue({
+      el: '#app',
+      components: {
+        'base-checkbox': {
+          template:
+            `
+            <a v-bind:href='url'
+            class='nav-link'>
+              <slot></slot>W
+            </a>
+            `
+        },
+      },
+      components: {
+        '': {
+          template:
+            `
+            <div>
+              <slot></slot>
+            </div>
+            `
+        },
+      }
+    });
+
+  </script>
+</body>
+
+</html>
